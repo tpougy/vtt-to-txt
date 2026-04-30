@@ -1,0 +1,21 @@
+{
+  "name": "vtt-to-txt",
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "bun --bun node_modules/.bin/astro dev",
+    "build": "bun --bun node_modules/.bin/astro build",
+    "preview": "bun --bun node_modules/.bin/astro preview"
+  },
+  "dependencies": {
+    "@astrojs/svelte": "^7.0.0",
+    "@astrojs/tailwind": "^5.1.0",
+    "astro": "^5.0.0",
+    "svelte": "^5.0.0",
+    "tailwindcss": "^3.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0"
+  }
+}

@@ -1,0 +1,23 @@
+---
+import Conversor from '../components/Conversor.svelte';
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Converta arquivos .vtt para texto simples" />
+    <title>VTT para TXT</title>
+  </head>
+  <body class="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+    <main class="w-full max-w-2xl bg-white rounded-2xl shadow-md p-8 flex flex-col gap-6">
+      <div class="text-center">
+        <h1 class="text-2xl font-bold text-gray-900">VTT para TXT</h1>
+        <p class="text-gray-500 text-sm mt-1">Converta legendas .vtt em texto simples</p>
+      </div>
+
+      <Conversor client:load />
+    </main>
+  </body>
+</html>
