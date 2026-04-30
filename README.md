@@ -2,6 +2,8 @@
 
 Converta arquivos de legenda `.vtt` em texto simples formatado.
 
+Especialmente util para converter transcrições do Microsoft Teams para texto legível
+
 ## Formato de saída
 
 ```
