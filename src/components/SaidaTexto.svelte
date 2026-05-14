@@ -1,10 +1,17 @@
 <script lang="ts">
   interface Props {
     conteudo: string;
+    nomeArquivo: string;
+    aoAlterarNome: (valor: string) => void;
     aoReiniciar: () => void;
   }
 
-  const { conteudo, aoReiniciar }: Props = $props();
+  const {
+    conteudo,
+    nomeArquivo,
+    aoAlterarNome,
+    aoReiniciar
+  }: Props = $props();
 
   let copiado = $state(false);
 
@@ -19,13 +26,35 @@
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'saida.txt';
+    link.download = nomeArquivo;
     link.click();
     URL.revokeObjectURL(url);
   }
 </script>
 
 <div class="flex flex-col gap-4">
+  <div class="flex flex-col gap-1">
+    <label class="text-sm font-medium text-gray-600">
+      Nome do arquivo
+    </label>
+
+    <div class="flex items-center rounded-lg border border-gray-300 overflow-hidden">
+      <input
+        type="text"
+        value={nomeArquivo.replace(/\.txt$/i, '')}
+        oninput={(e) =>
+          aoAlterarNome(
+            `${(e.target as HTMLInputElement).value}.txt`
+          )
+        }
+        class="flex-1 px-3 py-2 outline-none"
+      />
+
+      <span class="px-3 py-2 bg-gray-100 text-gray-500 text-sm border-l">
+        .txt
+      </span>
+    </div>
+  </div>
   <div class="flex items-center justify-between gap-3 flex-wrap">
     <h2 class="text-gray-700 font-semibold text-lg">Resultado</h2>
     <div class="flex gap-2">

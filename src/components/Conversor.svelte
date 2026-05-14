@@ -10,10 +10,13 @@
   let textoConvertido = $state('');
   let convertendo = $state(false);
 
+  let nomeArquivoSaida = $state('');
+
   function aoCarregarArquivo(arquivo: File): void {
     arquivoAtual = arquivo;
     estado = 'aguardando';
     textoConvertido = '';
+    nomeArquivoSaida = arquivo.name.replace(/\.vtt$/i, '.txt');
   }
 
   async function converter(): Promise<void> {
@@ -47,6 +50,11 @@
       {convertendo ? 'Convertendo...' : 'Converter'}
     </button>
   {:else}
-    <SaidaTexto conteudo={textoConvertido} aoReiniciar={reiniciar} />
+    <SaidaTexto
+      conteudo={textoConvertido}
+      nomeArquivo={nomeArquivoSaida}
+      aoAlterarNome={(valor) => nomeArquivoSaida = valor}
+      aoReiniciar={reiniciar}
+    />
   {/if}
 </div>
